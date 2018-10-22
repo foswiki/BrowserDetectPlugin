@@ -2,3 +2,10 @@
 igp_*
 *.gz
 *.swp
+/BrowserDetectPlugin.md5
+/BrowserDetectPlugin.sha1
+/BrowserDetectPlugin.tgz
+/BrowserDetectPlugin.txt
+/BrowserDetectPlugin.zip
+/BrowserDetectPlugin_installer
+/BrowserDetectPlugin_installer.pl
