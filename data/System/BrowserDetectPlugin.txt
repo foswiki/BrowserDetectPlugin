@@ -1,0 +1,266 @@
+%META:TOPICINFO{author="ProjectContributor" comment="" date="1540200062" format="1.1" version="1"}%
+---+!! %TOPIC%
+%FORMFIELD{"Description"}%
+
+%TOC%
+
+---++ Description
+This plugin leverages [[CPAN:HTTP::BrowserDetect][HTTP::BrowserDetect]] for wiki apps. In general your wiki apps should _not_ depend on
+a specific browser. However it might be useful to distiguish the _device_ the wiki app is running on such as tablets vs desktop vs mobile ones.
+
+---++ Usage
+=%<nop>BROWSERINFO{"&lt;format-string>" ua="..."}%=
+
+By default the properties of the current browser are extracted. However you might use the =ua="..."= string to test different devices.
+The =&lt;format-string>= might contain a variety of variables that are expanded to the properties found in the current device. 
+
+---+++ General Properties
+<noautolink>
+| *Property* | *Value* |
+| browser | %BROWSERINFO{"$browser"}% |
+| browser_string | %BROWSERINFO{"$browser_string"}% |
+| browser_version | %BROWSERINFO{"$browser_version"}% |
+| browser_major | %BROWSERINFO{"$browser_major"}% |
+| browser_minor | %BROWSERINFO{"$browser_minor"}% |
+| browser_beta | %BROWSERINFO{"$browser_beta"}% |
+| browser_properties | %BROWSERINFO{"$browser_properties"}% |
+| device | %BROWSERINFO{"$device"}% |
+| device_string | %BROWSERINFO{"$device_string"}% |
+| user_agent | %BROWSERINFO{"$user_agent"}% |
+
+---+++ Engines
+| engine | %BROWSERINFO{"$engine"}% |
+| engine_version | %BROWSERINFO{"$engine_version"}%  |
+| engine_major | %BROWSERINFO{"$engine_major"}%  |
+| engine_minor | %BROWSERINFO{"$engine_minor"}%  |
+| engine_beta | %BROWSERINFO{"$engine_beta"}%  |
+| webkit | %BROWSERINFO{"$webkit"}% |
+| gecko | %BROWSERINFO{"$gecko"}% |
+| trident | %BROWSERINFO{"$trident"}% |
+| presto | %BROWSERINFO{"$presto"}% |
+| khtml | %BROWSERINFO{"$khtml"}% |
+
+---+++ OS
+| *Property* | *Value* |
+| os | %BROWSERINFO{"$os"}%  |
+| os_string | %BROWSERINFO{"$os_string"}% |
+| os_version | %BROWSERINFO{"$os_version"}% |  
+| os_major | %BROWSERINFO{"$os_major"}% |  
+| os_minor | %BROWSERINFO{"$os_minor"}% |  
+| os_beta | %BROWSERINFO{"$os_beta"}% | 
+
+---+++ Browsers
+| *Property* | *Value* |
+| adm | %BROWSERINFO{"$adm"}% |
+| android | %BROWSERINFO{"$android"}% |
+| aol  | %BROWSERINFO{"$aol"}% |
+| aol3  | %BROWSERINFO{"$aol3"}% |
+| aol4  | %BROWSERINFO{"$aol4"}% |
+| aol5  | %BROWSERINFO{"$aol5"}% |
+| aol6 | %BROWSERINFO{"$aol6"}% |
+| applecoremedia | %BROWSERINFO{"$applecoremedia"}% |
+| audrey | %BROWSERINFO{"$audrey"}% |
+| avantgo | %BROWSERINFO{"$avantgo"}% |
+| avantgo | %BROWSERINFO{"$avantgo"}% |
+| blackberry | %BROWSERINFO{"$blackberry"}% |
+| browsex | %BROWSERINFO{"$browsex"}% |
+| chrome | %BROWSERINFO{"$chrome"}% |
+| dalvik | %BROWSERINFO{"$dalvik"}% |
+| dsi | %BROWSERINFO{"$dsi"}% |
+| elinks | %BROWSERINFO{"$elinks"}% |
+| emacs | %BROWSERINFO{"$emacs"}% |
+| epiphany | %BROWSERINFO{"$epiphany"}% |
+| firefox | %BROWSERINFO{"$firefox"}% |
+| galeon | %BROWSERINFO{"$galeon"}% |
+| icab | %BROWSERINFO{"$icab"}% |
+| ie  | %BROWSERINFO{"$ie"}% |
+| ie10  | %BROWSERINFO{"$ie10"}% |
+| ie11 | %BROWSERINFO{"$ie11"}% |
+| ie3  | %BROWSERINFO{"$ie3"}% |
+| ie4  | %BROWSERINFO{"$ie4"}% |
+| ie4up  | %BROWSERINFO{"$ie4up"}% |
+| ie5  | %BROWSERINFO{"$ie5"}% |
+| ie55  | %BROWSERINFO{"$ie55"}% |
+| ie55up  | %BROWSERINFO{"$ie55up"}% |
+| ie5up  | %BROWSERINFO{"$ie5up"}% |
+| ie6  | %BROWSERINFO{"$ie6"}% |
+| ie7  | %BROWSERINFO{"$ie7"}% |
+| ie8  | %BROWSERINFO{"$ie8"}% |
+| ie9  | %BROWSERINFO{"$ie9"}% |
+| ie_compat_mode | %BROWSERINFO{"$ie_compat_mode"}% |
+| iopener | %BROWSERINFO{"$iopener"}% |
+| ipad | %BROWSERINFO{"$ipad"}% |
+| iphone | %BROWSERINFO{"$iphone"}% |
+| ipod | %BROWSERINFO{"$ipod"}% |
+| kindle | %BROWSERINFO{"$kindle"}% |
+| kindlefire | %BROWSERINFO{"$kindlefire"}% |
+| konqueror | %BROWSERINFO{"$konqueror"}% |
+| links  | %BROWSERINFO{"$links"}% |
+| lotusnotes | %BROWSERINFO{"$lotusnotes"}% |
+| lynx  | %BROWSERINFO{"$lynx"}% |
+| mobile_safari | %BROWSERINFO{"$mobile_safari"}% |
+| mosaic | %BROWSERINFO{"$mosaic"}% |
+| mozilla | %BROWSERINFO{"$mozilla"}% |
+| n3ds | %BROWSERINFO{"$n3ds"}% |
+| nav2  | %BROWSERINFO{"$nav2"}% |
+| nav3  | %BROWSERINFO{"$nav3"}% |
+| nav4  | %BROWSERINFO{"$nav4"}% |
+| nav45  | %BROWSERINFO{"$nav45"}% |
+| nav45up  | %BROWSERINFO{"$nav45up"}% |
+| nav4up  | %BROWSERINFO{"$nav4up"}% |
+| nav6  | %BROWSERINFO{"$nav6"}% |
+| nav6up | %BROWSERINFO{"$nav6up"}% |
+| navgold  | %BROWSERINFO{"$navgold"}% |
+| neoplanet  | %BROWSERINFO{"$neoplanet"}% |
+| neoplanet2 | %BROWSERINFO{"$neoplanet2"}% |
+| netfront | %BROWSERINFO{"$netfront"}% |
+| netscape  | %BROWSERINFO{"$netscape"}% |
+| obigo | %BROWSERINFO{"$obigo"}% |
+| opera  | %BROWSERINFO{"$opera"}% |
+| opera3  | %BROWSERINFO{"$opera3"}% |
+| opera4  | %BROWSERINFO{"$opera4"}% |
+| opera5  | %BROWSERINFO{"$opera5"}% |
+| opera6  | %BROWSERINFO{"$opera6"}% |
+| opera7 | %BROWSERINFO{"$opera7"}% |
+| palm | %BROWSERINFO{"$palm"}% |
+| polaris | %BROWSERINFO{"$polaris"}% |
+| ps3 | %BROWSERINFO{"$ps3"}% |
+| psp | %BROWSERINFO{"$psp"}% |
+| pubsub | %BROWSERINFO{"$pubsub"}% |
+| realplayer | %BROWSERINFO{"$realplayer"}% |
+| realplayer_browser | %BROWSERINFO{"$realplayer_browser"}% |
+| safari | %BROWSERINFO{"$safari"}% |
+| seamonkey | %BROWSERINFO{"$seamonkey"}% |
+| silk | %BROWSERINFO{"$silk"}% |
+| staroffice | %BROWSERINFO{"$staroffice"}% |
+| ucbrowser | %BROWSERINFO{"$ucbrowser"}% |
+| wap | %BROWSERINFO{"$wap"}% |
+| webos | %BROWSERINFO{"$webos"}% |
+| webtv | %BROWSERINFO{"$webtv"}% |
+
+---+++ Windows
+| *Property* | *Value* |
+| windows | %BROWSERINFO{"$windows"}% |
+| win16 | %BROWSERINFO{"$win16"}% |
+| win3x | %BROWSERINFO{"$win3x"}% |
+| win31 | %BROWSERINFO{"$win31"}% |
+| win32 | %BROWSERINFO{"$win32"}% |
+| winme | %BROWSERINFO{"$winme"}% |
+| win95 | %BROWSERINFO{"$win95"}% |
+| win98 | %BROWSERINFO{"$win98"}% |
+| winnt | %BROWSERINFO{"$winnt"}% |
+| win2k | %BROWSERINFO{"$win2k"}% |
+| winxp | %BROWSERINFO{"$winxp"}% |
+| win2k3 | %BROWSERINFO{"$win2k3"}% |
+| winvista | %BROWSERINFO{"$winvista"}% |
+| win7 | %BROWSERINFO{"$win7"}% |
+| win8 | %BROWSERINFO{"$win8"}% |
+| win8_0 | %BROWSERINFO{"$win8_0"}% |
+| win8_1 | %BROWSERINFO{"$win8_1"}% |
+| win10| %BROWSERINFO{"$win10"}% |
+| win10_0 | %BROWSERINFO{"$win10_0"}% |
+| wince | %BROWSERINFO{"$wince"}% |
+| winphone| %BROWSERINFO{"$winphone"}% |
+| winphone7 | %BROWSERINFO{"$winphone7"}% |
+| winphone7_5 | %BROWSERINFO{"$winphone7_5"}% |
+| winphone8 | %BROWSERINFO{"$winphone8"}% |
+| winphone10 | %BROWSERINFO{"$winphone10"}% |
+
+---+++ Macs
+| *Property* | *Value* |
+| mac | %BROWSERINFO{"$mac"}% |
+| mac68k | %BROWSERINFO{"$mac68k"}% | 
+| macppc | %BROWSERINFO{"$macppc"}% | 
+| macosx | %BROWSERINFO{"$macosx"}% | 
+| ios| %BROWSERINFO{"$ios"}% | 
+
+---+++ Unix
+| *Property* | *Value* |
+| unix | %BROWSERINFO{"$unix"}% |
+| sun | %BROWSERINFO{"$sun"}% |
+| sun4 | %BROWSERINFO{"$sun4"}% |
+| sun5 | %BROWSERINFO{"$sun5"}% |
+| suni86 | %BROWSERINFO{"$suni86"}% |
+| irix | %BROWSERINFO{"$irix"}% |
+| irix5 | %BROWSERINFO{"$irix5"}% |
+| irix6 | %BROWSERINFO{"$irix6"}% |
+| hpux | %BROWSERINFO{"$hpux"}% |
+| hpux9 | %BROWSERINFO{"$hpux9"}% |
+| hpux10| %BROWSERINFO{"$hpux10"}% |
+| aix | %BROWSERINFO{"$aix"}% |
+| aix1 | %BROWSERINFO{"$aix1"}% |
+| aix2 | %BROWSERINFO{"$aix2"}% |
+| aix3 | %BROWSERINFO{"$aix3"}% |
+| aix4 | %BROWSERINFO{"$aix4"}% |
+| linux | %BROWSERINFO{"$linux"}% |
+| sco | %BROWSERINFO{"$sco"}% |
+| unixware | %BROWSERINFO{"$unixware"}% |
+| mpras | %BROWSERINFO{"$mpras"}% |
+| reliant| %BROWSERINFO{"$reliant"}% |
+| dec | %BROWSERINFO{"$dec"}% |
+| sinix | %BROWSERINFO{"$sinix"}% |
+| freebsd | %BROWSERINFO{"$freebsd"}% |
+| bsd| %BROWSERINFO{"$bsd"}% |
+
+---+++ Other Devices
+| *Property* | *Value* |
+| amiga | %BROWSERINFO{"$amiga"}% |
+| chromeos | %BROWSERINFO{"$chromeos"}% |
+| dotnet | %BROWSERINFO{"$dotnet"}% |
+| firefoxos | %BROWSERINFO{"$firefoxos"}% |
+| lib | %BROWSERINFO{"$lib"}% |
+| mobile | %BROWSERINFO{"$mobile"}% |
+| ps3gameos | %BROWSERINFO{"$ps3gameos"}% |
+| pspgameos | %BROWSERINFO{"$pspgameos"}% |
+| tablet | %BROWSERINFO{"$tablet"}% |
+| vms | %BROWSERINFO{"$vms"}% |
+| webview | %BROWSERINFO{"$webview"}% |
+| windows | %BROWSERINFO{"$windows"}% |
+| x11 | %BROWSERINFO{"$x11"}% |
+
+---+++ Robots
+| *Property* | *Value* |
+| robot | %BROWSERINFO{"$robot"}% |
+| robot_string | %BROWSERINFO{"$robot_string"}% |
+| robot_id | %BROWSERINFO{"$robot_id"}% |
+| robot_version | %BROWSERINFO{"$robot_version"}% |
+| robot_major | %BROWSERINFO{"$robot_major"}% |
+| robot_minor | %BROWSERINFO{"$robot_minor"}% |
+| robot_beta | %BROWSERINFO{"$robot_beta"}% |
+| all_robot_ids | %BROWSERINFO{"$all_robot_ids"}% |
+</noautolink>
+
+<literal>
+<script>
+jQuery(function($) {
+   $(".foswikiTable td").livequery(function() {
+      var $this = $(this), txt = $this.text().replace(/\s+|\s+/g, '');
+      if (txt == '1') {
+         $this.parent().addClass("foswikiSelected");
+      }
+   });
+});
+</script>
+</literal>
+
+---++ Installation Instructions
+%$INSTALL_INSTRUCTIONS%
+
+---++ Dependencies
+%$DEPENDENCIES%
+
+---++ Change History
+
+%TABLE{columnwidths="7em" tablewidth="100%"}%
+|  22 Oct 2018 | initial release |
+
+%META:FORM{name="PackageForm"}%
+%META:FIELD{name="Author" title="Author" value="Michael Daum"}%
+%META:FIELD{name="Version" title="Version" value="%25$VERSION%25"}%
+%META:FIELD{name="Release" title="Release" value="%25$RELEASE%25"}%
+%META:FIELD{name="Description" title="Description" value="%25$SHORTDESCRIPTION%25"}%
+%META:FIELD{name="Repository" title="Repository" value="https://github.com/foswiki/%25TOPIC%25"}%
+%META:FIELD{name="Copyright" title="Copyright" value="2016 Michael Daum http://michaeldaumconsulting.com"}%
+%META:FIELD{name="License" title="License" value="GPL ([[http://www.gnu.org/copyleft/gpl.html][GNU General Public License]])"}%
+%META:FIELD{name="Home" title="Home" value="https://foswiki.org/Extensions/%25TOPIC%25"}%
+%META:FIELD{name="Support" title="Support" value="https://foswiki.org/Support/%25TOPIC%25"}%

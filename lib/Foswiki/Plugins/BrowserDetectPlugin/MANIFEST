@@ -1,0 +1,6 @@
+!noci
+data/System/BrowserDetectPlugin.txt 0644
+lib/Foswiki/Plugins/BrowserDetectPlugin/Config.spec 0644
+lib/Foswiki/Plugins/BrowserDetectPlugin/Core.pm 0644
+lib/Foswiki/Plugins/BrowserDetectPlugin/DEPENDENCIES 0644
+lib/Foswiki/Plugins/BrowserDetectPlugin.pm 0644
