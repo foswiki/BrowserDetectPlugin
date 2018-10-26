@@ -20,15 +20,22 @@ use warnings;
 
 use Foswiki::Func ();
 
-our $VERSION = '1.00';
-our $RELEASE = '22 Oct 2018';
+our $VERSION = '2.00';
+our $RELEASE = '26 Oct 2018';
 our $SHORTDESCRIPTION = 'Determine Web browser, version, and platform from an HTTP user agent string';
 our $NO_PREFS_IN_TOPIC = 1;
 our $core;
 
 sub initPlugin {
 
-  Foswiki::Func::registerTagHandler('BROWSERINFO', sub { return getCore()->BROWSERINFO(@_); });
+  Foswiki::Func::registerTagHandler(
+    'BROWSERINFO',
+    sub {
+      return getCore()->BROWSERINFO(@_);
+    }
+  );
+
+  getCore()->initContext();
 
   return 1;
 }

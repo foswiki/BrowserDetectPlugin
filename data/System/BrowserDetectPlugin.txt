@@ -1,4 +1,4 @@
-%META:TOPICINFO{author="ProjectContributor" comment="" date="1540200062" format="1.1" version="1"}%
+%META:TOPICINFO{author="ProjectContributor" comment="" date="1540571983" format="1.1" version="1"}%
 ---+!! %TOPIC%
 %FORMFIELD{"Description"}%
 
@@ -13,6 +13,65 @@ a specific browser. However it might be useful to distiguish the _device_ the wi
 
 By default the properties of the current browser are extracted. However you might use the =ua="..."= string to test different devices.
 The =&lt;format-string>= might contain a variety of variables that are expanded to the properties found in the current device. 
+
+---++ Context
+
+Boolean browser properties - those that return 1 or 0 are flagged to the Foswiki context as well so that you can make use of them in
+[[%SYSTEMWEB%.IfStatements]]. Below example will generate two different whatsapp links depending on whether you are on a mobile
+device or not.
+
+*You type*:
+
+<verbatim class="tml">
+<a href="%IF{"context mobile"
+            then="whatsapp://"
+            else="https://web.whatsapp.com?"
+          }%send?text=%ENCODE{"Hello World"}%">
+  %JQICON{"fa-whatsapp"}% Share on !WhatsApp
+</a>
+</verbatim>
+
+*You get*:
+
+<a href="%IF{"context mobile"
+            then="whatsapp://"
+            else="https://web.whatsapp.com?"
+          }%send?text=%ENCODE{"Hello World"}%">
+  %JQICON{"fa-whatsapp"}% Share on !WhatsApp
+</a>
+
+Context settings are:
+
+<verbatim>
+gecko webkit trident presto khtml
+
+windows win16 win3x win31 win32 winme win95 win98 winnt win2k winxp win2k3
+winvista win7 win8 win8_0 win8_1 win10 win10_0 wince winphone winphone7
+winphone7_5 winphone8 winphone10
+
+adm android aol aol3 aol4 aol5 aol6 applecoremedia audrey avantgo avantgo
+blackberry browsex chrome dalvik dsi elinks emacs epiphany firefox galeon icab
+
+ie ie10 ie11 ie3 ie4 ie4up ie5 ie55 ie55up ie5up ie6 ie7 ie8 ie9 ie_compat_mode
+
+iopener ipad iphone ipod kindle kindlefire konqueror links lotusnotes lynx
+mobile_safari mosaic mozilla n3ds nav2 nav3 nav4 nav45 nav45up nav4up nav6
+nav6up navgold neoplanet neoplanet2 netfront netscape obigo
+
+opera opera3 opera4 opera5 opera6 opera7
+
+palm polaris ps3 psp pubsub realplayer realplayer_browser safari seamonkey silk
+staroffice ucbrowser wap webos webtv
+
+mac mac68k macppc macosx ios
+
+unix sun sun4 sun5 suni86 irix irix5 irix6 hpux hpux9 hpux10 aix aix1 aix2 aix3
+aix4 linux sco unixware mpras reliant dec sinix freebsd bsd
+
+chromeos dotnet firefoxos lib mobile robot tablet webview x11
+
+vms amiga ps3gameos pspgameos
+</verbatim>
 
 ---+++ General Properties
 <noautolink>
@@ -202,7 +261,7 @@ The =&lt;format-string>= might contain a variety of variables that are expanded 
 | freebsd | %BROWSERINFO{"$freebsd"}% |
 | bsd| %BROWSERINFO{"$bsd"}% |
 
----+++ Other Devices
+---+++ Devices
 | *Property* | *Value* |
 | amiga | %BROWSERINFO{"$amiga"}% |
 | chromeos | %BROWSERINFO{"$chromeos"}% |
@@ -252,6 +311,7 @@ jQuery(function($) {
 ---++ Change History
 
 %TABLE{columnwidths="7em" tablewidth="100%"}%
+|  26 Oct 2018 | performance fixes; all positive boolean browser properties are added to the Foswiki "context" now |
 |  22 Oct 2018 | initial release |
 
 %META:FORM{name="PackageForm"}%
