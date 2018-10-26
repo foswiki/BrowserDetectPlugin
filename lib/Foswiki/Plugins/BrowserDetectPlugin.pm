@@ -20,7 +20,7 @@ use warnings;
 
 use Foswiki::Func ();
 
-our $VERSION = '2.00';
+our $VERSION = '2.01';
 our $RELEASE = '26 Oct 2018';
 our $SHORTDESCRIPTION = 'Determine Web browser, version, and platform from an HTTP user agent string';
 our $NO_PREFS_IN_TOPIC = 1;

@@ -94,14 +94,16 @@ sub ua {
   
   unless ($initString) {
     my $request = Foswiki::Func::getRequestObject();
-    $initString = $request->userAgent();
+    $initString = $request->userAgent() || '';
   }
 
   $this->{_initString} = $initString;
 
-  writeDebug("$initString");
+  #writeDebug("$initString");
 
   $this->{_ua} = HTTP::BrowserDetect->new($initString);
+
+  #writeDebug("device_string=",$this->{_ua}->device_string());
 
   return $this->{_ua}
 }
@@ -120,6 +122,8 @@ sub initContext {
   my $this = shift;
 
   my $context = Foswiki::Func::getContext();
+  return if $context->{command_line};
+
   my $ua = $this->ua();
   foreach my $prop (BOOLEAN_PROPS) {
     if ($ua->$prop()) {
