@@ -1,6 +1,6 @@
 # Plugin for Foswiki - The Free and Open Source Wiki, https://foswiki.org/
 #
-# BrowserDetectPlugin is Copyright (C) 2018 Michael Daum http://michaeldaumconsulting.com
+# BrowserDetectPlugin is Copyright (C) 2018-2020 Michael Daum http://michaeldaumconsulting.com
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -88,11 +88,11 @@ sub new {
 sub ua {
   my ($this, $initString) = @_;
 
-  if ($this->{_ua} && (!$initString || $this->{_initString} eq $initString)) {
+  if (defined $this->{_ua} && (!defined($initString) || $this->{_initString} eq $initString)) {
     return $this->{_ua};
   }
   
-  unless ($initString) {
+  unless (defined($initString)) {
     my $request = Foswiki::Func::getRequestObject();
     $initString = $request->userAgent() || '';
   }
@@ -124,7 +124,14 @@ sub initContext {
   my $context = Foswiki::Func::getContext();
   return if $context->{command_line};
 
-  my $ua = $this->ua();
+  my $initString;
+
+ if ($context->{isadmin}) {
+    my $request = Foswiki::Func::getRequestObject();
+    $initString = $request->param("ua");
+  }
+
+  my $ua = $this->ua($initString);
   foreach my $prop (BOOLEAN_PROPS) {
     if ($ua->$prop()) {
       $context->{$prop} = 1;

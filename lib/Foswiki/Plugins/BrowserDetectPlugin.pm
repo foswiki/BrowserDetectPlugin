@@ -1,6 +1,6 @@
 # Plugin for Foswiki - The Free and Open Source Wiki, https://foswiki.org/
 #
-# BrowserDetectPlugin is Copyright (C) 2018 Michael Daum http://michaeldaumconsulting.com
+# BrowserDetectPlugin is Copyright (C) 2018-2020 Michael Daum http://michaeldaumconsulting.com
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -20,8 +20,8 @@ use warnings;
 
 use Foswiki::Func ();
 
-our $VERSION = '2.01';
-our $RELEASE = '26 Oct 2018';
+our $VERSION = '3.10';
+our $RELEASE = '19 Oct 2020';
 our $SHORTDESCRIPTION = 'Determine Web browser, version, and platform from an HTTP user agent string';
 our $NO_PREFS_IN_TOPIC = 1;
 our $core;
