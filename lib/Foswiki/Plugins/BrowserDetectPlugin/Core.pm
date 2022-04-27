@@ -1,6 +1,6 @@
 # Plugin for Foswiki - The Free and Open Source Wiki, https://foswiki.org/
 #
-# BrowserDetectPlugin is Copyright (C) 2018-2020 Michael Daum http://michaeldaumconsulting.com
+# BrowserDetectPlugin is Copyright (C) 2018-2022 Michael Daum http://michaeldaumconsulting.com
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -39,7 +39,7 @@ use constant STRING_PROPS => qw(
 );
 
 use constant BOOLEAN_PROPS => qw(
-    gecko webkit trident presto khtml
+    gecko webkit trident presto khtml edgehtml
 
     windows win16 win3x win31 win32 winme win95 win98 winnt win2k winxp win2k3
     winvista win7 win8 win8_0 win8_1 win10 win10_0 wince winphone winphone7
@@ -49,6 +49,8 @@ use constant BOOLEAN_PROPS => qw(
     blackberry browsex chrome dalvik dsi elinks emacs epiphany firefox galeon icab
 
     ie ie10 ie11 ie3 ie4 ie4up ie5 ie55 ie55up ie5up ie6 ie7 ie8 ie9 ie_compat_mode
+
+    edge edgelegacy
 
     iopener ipad iphone ipod kindle kindlefire konqueror links lotusnotes lynx
     mobile_safari mosaic mozilla n3ds nav2 nav3 nav4 nav45 nav45up nav4up nav6
